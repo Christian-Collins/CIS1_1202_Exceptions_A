@@ -10,15 +10,76 @@ char character(char start, int offset);
 
 int main()
 {
-
+	char test = 'd';
+	int test1 = 5;
+	try
+	{
+		char result = character(test, test1);
+		cout << test << " + " << test1 << " = " << result << endl;
+	}
+	catch (string invalidCharacterException)
+	{
+		cout << invalidCharacterException;
+	}
+	catch (int invalidRangeException)
+	{
+		cout << "ERROR:converts letters to non-letter or to a different case.\n";
+	}
+	test = 'A';
+	test1 = 32;
+	try
+	{
+		char result = character(test, test1);
+		cout << test << " + " << test1 << " = " << result << endl;
+	}
+	catch (string invalidCharacterException)
+	{
+		cout << invalidCharacterException;
+	}
+	catch (int invalidRangeException)
+	{
+		cout << "ERROR:converts letters to non-letter or to a different case.\n";
+	}
+	test = 'Z';
+	test1 = -1;
+	try
+	{
+		char result = character(test, test1);
+		cout << test << " + " << test1 << " = " << result << endl;
+	}
+	catch (string invalidCharacterException)
+	{
+		cout << invalidCharacterException;
+	}
+	catch (int invalidRangeException)
+	{
+		cout << "ERROR:converts letters to non-letter or to a different case.\n";
+	}
+	test = 'a';
+	test = -1;
+	try
+	{
+		char result = character(test, test1);
+		cout << test << " + " << test1 << " = " << result << endl;
+	}
+	catch (string invalidCharacterException)
+	{
+		cout << invalidCharacterException;
+	}
+	catch (int invalidRangeException)
+	{
+		cout << "ERROR:converts letters to non-letter or to a different case.\n";
+	}
+	cout << "\n\n";
+	return(0);
 }
 
 char character(char start, int offset)
 {
-	string invalidRangeException;
+	int invalidRangeException = 0;
 	if (!(isalpha(start)))
 	{
-		string invalidCharacterException = "";
+		string invalidCharacterException = "ERROR:character is not a letter.\n";
 		throw invalidCharacterException;
 	}
 	else if (offset > 25 || offset < -25)
